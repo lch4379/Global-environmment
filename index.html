@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>이충형의 자기소개</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+            min-height: 100dvh;
+            padding: 24px 16px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            font-family: Arial, "Malgun Gothic", sans-serif;
+            color: #26382d;
+            background: linear-gradient(135deg, #e8f5e9, #e0f7fa);
+            overflow-x: hidden;
+        }
+
+        /* D-day 카운터 */
+        .dday-box {
+            width: 100%;
+            max-width: 400px;
+            margin: 0 auto 20px;
+            padding: 22px 16px;
+            text-align: center;
+            background: linear-gradient(135deg, #c8e6c9, #b2ebf2);
+            border-radius: 20px;
+            box-shadow: 0 8px 24px rgba(38, 70, 45, 0.10);
+        }
+
+        .dday-number {
+            margin: 0 0 6px;
+            color: #1b5e20;
+            font-size: clamp(42px, 12vw, 64px);
+            font-weight: 800;
+            line-height: 1.2;
+            letter-spacing: -2px;
+        }
+
+        .dday-label {
+            margin: 0;
+            color: #33665a;
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        /* 자기소개 카드 */
+        .card {
+            width: 100%;
+            max-width: 400px;
+            padding: 36px 24px;
+            background: #ffffff;
+            border-radius: 24px;
+            text-align: center;
+            box-shadow: 0 12px 35px rgba(38, 70, 45, 0.12);
+            animation: appear 0.7s ease-out;
+        }
+
+        .emoji {
+            font-size: 76px;
+            line-height: 1.3;
+            margin-bottom: 16px;
+        }
+
+        h1 {
+            margin: 0 0 14px;
+            font-size: 30px;
+            font-weight: 800;
+            letter-spacing: -1px;
+        }
+
+        .intro {
+            margin: 0 0 28px;
+            color: #607d68;
+            font-size: 15px;
+            line-height: 1.9;
+            word-break: keep-all;
+            overflow-wrap: anywhere;
+        }
+
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 30px;
+        }
+
+        .tag {
+            max-width: 100%;
+            padding: 10px 15px;
+            border-radius: 999px;
+            background: #e8f5e9;
+            color: #2e7d32;
+            font-size: 14px;
+            font-weight: 700;
+            overflow-wrap: anywhere;
+        }
+
+        .github-button {
+            display: block;
+            width: 100%;
+            max-width: 100%;
+            padding: 15px 20px;
+            background: #2e7d32;
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: 700;
+            border-radius: 12px;
+            transition: background-color 0.2s, transform 0.2s;
+        }
+
+        .github-button:hover {
+            background: #1b5e20;
+            transform: translateY(-2px);
+        }
+
+        .github-button:focus-visible {
+            outline: 3px solid #81c784;
+            outline-offset: 4px;
+        }
+
+        @keyframes appear {
+            from {
+                opacity: 0;
+                transform: translateY(15px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 360px) {
+            .card {
+                padding: 28px 18px;
+            }
+
+            .emoji {
+                font-size: 60px;
+            }
+
+            h1 {
+                font-size: 26px;
+            }
+
+            .intro {
+                font-size: 14px;
+            }
+
+            .tag {
+                padding: 9px 12px;
+                font-size: 13px;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .card {
+                animation: none;
+            }
+
+            .github-button {
+                transition: none;
+            }
+        }
+
+        /* 만다라트 목표판 */
+        .mandalart-section {
+            width: 100%;
+            max-width: 400px;
+            margin: 0 auto 24px;
+            text-align: center;
+        }
+
+        .mandalart-section h2 {
+            margin: 0 0 6px;
+            color: #26382d;
+            font-size: 26px;
+            font-weight: 800;
+        }
+
+        .mandalart-guide {
+            margin: 0 0 16px;
+            color: #607d68;
+            font-size: 14px;
+        }
+
+        .mandalart-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 6px;
+            width: 100%;
+        }
+
+        .goal-cell {
+            aspect-ratio: 1 / 1;
+            min-width: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 6px;
+            border: 1px solid #c8e6c9;
+            border-radius: 12px;
+            background: #ffffff;
+            color: #2e5d3a;
+            font-size: clamp(10px, 3.1vw, 14px);
+            line-height: 1.35;
+            text-align: center;
+            overflow-wrap: anywhere;
+            word-break: keep-all;
+            overflow: auto;
+            cursor: text;
+            user-select: text;
+        }
+
+        .goal-cell:focus {
+            outline: 2px solid #66bb6a;
+            outline-offset: -3px;
+            background: #f7fff7;
+        }
+
+        .goal-cell.main-goal {
+            background: #2e7d32;
+            border-color: #2e7d32;
+            color: #ffffff;
+            font-size: clamp(12px, 3.5vw, 16px);
+            font-weight: 800;
+        }
+
+        .goal-cell.main-goal:focus {
+            background: #256629;
+        }
+
+        .mandalart-status {
+            margin: 12px 0 0;
+            color: #607d68;
+            font-size: 12px;
+        }
+
+        @media (max-width: 360px) {
+            .mandalart-grid {
+                gap: 4px;
+            }
+
+            .goal-cell {
+                padding: 4px;
+                border-radius: 8px;
+                font-size: 10px;
+            }
+
+            .goal-cell.main-goal {
+                font-size: 11px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- 만다라트 목표판 -->
+    <section class="mandalart-section" aria-labelledby="mandalart-title">
+        <h2 id="mandalart-title">나의 목표</h2>
+        <p class="mandalart-guide">칸을 눌러서 고칠 수 있어요</p>
+
+        <div class="mandalart-grid" role="group" aria-label="만다라트 목표판">
+            <div class="goal-cell" contenteditable="true" data-goal-index="0" role="textbox" aria-label="세부 목표 1" spellcheck="false">매일 30분 영어 듣기</div>
+            <div class="goal-cell" contenteditable="true" data-goal-index="1" role="textbox" aria-label="세부 목표 2" spellcheck="false">수학 오답노트</div>
+            <div class="goal-cell" contenteditable="true" data-goal-index="2" role="textbox" aria-label="세부 목표 3" spellcheck="false">주 3회 운동</div>
+            <div class="goal-cell" contenteditable="true" data-goal-index="3" role="textbox" aria-label="세부 목표 4" spellcheck="false">독서 월 2권</div>
+            <div class="goal-cell main-goal" contenteditable="true" data-goal-index="4" role="textbox" aria-label="가운데 큰 목표" spellcheck="false">환경공학과 진학</div>
+            <div class="goal-cell" contenteditable="true" data-goal-index="5" role="textbox" aria-label="세부 목표 5" spellcheck="false">과학 동아리 발표</div>
+            <div class="goal-cell" contenteditable="true" data-goal-index="6" role="textbox" aria-label="세부 목표 6" spellcheck="false">7시간 수면</div>
+            <div class="goal-cell" contenteditable="true" data-goal-index="7" role="textbox" aria-label="세부 목표 7" spellcheck="false">봉사활동 20시간</div>
+            <div class="goal-cell" contenteditable="true" data-goal-index="8" role="textbox" aria-label="세부 목표 8" spellcheck="false">코딩 포트폴리오</div>
+        </div>
+
+        <p class="mandalart-status" id="mandalart-status" aria-live="polite">수정한 내용은 이 브라우저에 자동 저장돼요.</p>
+    </section>
+
+    <!-- D-day 설정 -->
+    <script>
+        const TARGET_DATE = "2026-10-24";
+        const DDAY_LABEL = "수능 현역까지";
+    </script>
+
+    <!-- D-day 카운터 -->
+    <section class="dday-box" aria-label="D-day 카운터">
+        <p class="dday-number" id="dday-number">D-Day</p>
+        <p class="dday-label" id="dday-label">수능 현역까지</p>
+    </section>
+
+    <script>
+        function updateDday() {
+            const today = new Date();
+            const target = new Date(TARGET_DATE + "T00:00:00");
+
+            const todayDate = new Date(
+                today.getFullYear(),
+                today.getMonth(),
+                today.getDate()
+            );
+
+            const targetDate = new Date(
+                target.getFullYear(),
+                target.getMonth(),
+                target.getDate()
+            );
+
+            const diff = Math.round(
+                (targetDate - todayDate) / (1000 * 60 * 60 * 24)
+            );
+
+            let text;
+
+            if (diff > 0) {
+                text = "D-" + diff;
+            } else if (diff === 0) {
+                text = "D-Day";
+            } else {
+                text = "D+" + Math.abs(diff);
+            }
+
+            document.getElementById("dday-number").textContent = text;
+            document.getElementById("dday-label").textContent = DDAY_LABEL;
+        }
+
+        updateDday();
+    </script>
+
+    <!-- 자기소개 카드 -->
+    <main class="card">
+        <div class="emoji" aria-hidden="true">🌏</div>
+        <h1>이충형</h1>
+
+        <p class="intro">
+            환경을 잘 생각하고 지구를 지키고자 하는 고등학교 2학년입니다.
+        </p>
+
+        <div class="tags" aria-label="좋아하는 것">
+            <span class="tag">♻️ 분리수거</span>
+            <span class="tag">🌱 재활용</span>
+            <span class="tag">🌡️ 기후 변화 대처법</span>
+        </div>
+
+        <a
+            class="github-button"
+            href="https://github.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+        >
+            내 깃허브 ↗
+        </a>
+    </main>
+
+    <!-- 만다라트 목표판 자동 저장 -->
+    <script>
+        (() => {
+            const storageKey = "environmentMandalartGoals_v1";
+            const cells = Array.from(document.querySelectorAll(".goal-cell"));
+            const status = document.getElementById("mandalart-status");
+
+            // 저장된 목표가 있으면 불러오기
+            try {
+                const savedGoals = JSON.parse(
+                    localStorage.getItem(storageKey) || "null"
+                );
+
+                if (Array.isArray(savedGoals)) {
+                    cells.forEach((cell, index) => {
+                        if (typeof savedGoals[index] === "string") {
+                            cell.textContent = savedGoals[index];
+                        }
+                    });
+                }
+            } catch (error) {
+                // 저장 기능을 사용할 수 없어도 칸 편집은 가능
+            }
+
+            // 칸을 수정할 때마다 자동 저장
+            cells.forEach((cell) => {
+                cell.addEventListener("input", () => {
+                    try {
+                        const goals = cells.map(
+                            (item) => item.innerText.trim()
+                        );
+
+                        localStorage.setItem(
+                            storageKey,
+                            JSON.stringify(goals)
+                        );
+
+                        status.textContent =
+                            "저장 완료! 새로고침해도 내용이 유지돼요.";
+                    } catch (error) {
+                        status.textContent =
+                            "이 브라우저에서는 자동 저장을 사용할 수 없어요.";
+                    }
+                });
+
+                // Enter를 눌러도 칸 안에서 줄바꿈되지 않도록 설정
+                cell.addEventListener("keydown", (event) => {
+                    if (event.key === "Enter") {
+                        event.preventDefault();
+                        cell.blur();
+                    }
+                });
+            });
+        })();
+    </script>
+
+</body>
+</html>

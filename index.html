@@ -175,10 +175,10 @@
             }
         }
 
-        /* 만다라트 목표판 */
+        /* 5×5 만다라트 목표판 */
         .mandalart-section {
             width: 100%;
-            max-width: 400px;
+            max-width: 520px;
             margin: 0 auto 24px;
             text-align: center;
         }
@@ -198,7 +198,7 @@
 
         .mandalart-grid {
             display: grid;
-            grid-template-columns: repeat(3, minmax(0, 1fr));
+            grid-template-columns: repeat(5, minmax(0, 1fr));
             gap: 6px;
             width: 100%;
         }
@@ -214,8 +214,8 @@
             border-radius: 12px;
             background: #ffffff;
             color: #2e5d3a;
-            font-size: clamp(10px, 3.1vw, 14px);
-            line-height: 1.35;
+            font-size: clamp(10px, 2.2vw, 14px);
+            line-height: 1.4;
             text-align: center;
             overflow-wrap: anywhere;
             word-break: keep-all;
@@ -230,11 +230,12 @@
             background: #f7fff7;
         }
 
+        /* 가운데 핵심 목표 */
         .goal-cell.main-goal {
             background: #2e7d32;
             border-color: #2e7d32;
             color: #ffffff;
-            font-size: clamp(12px, 3.5vw, 16px);
+            font-size: clamp(11px, 2.5vw, 16px);
             font-weight: 800;
         }
 
@@ -248,19 +249,20 @@
             font-size: 12px;
         }
 
+        /* 작은 화면 대응 */
         @media (max-width: 360px) {
             .mandalart-grid {
                 gap: 4px;
             }
 
             .goal-cell {
-                padding: 4px;
-                border-radius: 8px;
-                font-size: 10px;
+                padding: 3px;
+                border-radius: 7px;
+                font-size: 9px;
             }
 
             .goal-cell.main-goal {
-                font-size: 11px;
+                font-size: 10px;
             }
         }
     </style>
@@ -274,18 +276,40 @@
         <p class="mandalart-guide">칸을 눌러서 고칠 수 있어요</p>
 
         <div class="mandalart-grid" role="group" aria-label="만다라트 목표판">
-            <div class="goal-cell" contenteditable="true" data-goal-index="0" role="textbox" aria-label="세부 목표 1" spellcheck="false">매일 30분 영어 듣기</div>
-            <div class="goal-cell" contenteditable="true" data-goal-index="1" role="textbox" aria-label="세부 목표 2" spellcheck="false">수학 오답노트</div>
-            <div class="goal-cell" contenteditable="true" data-goal-index="2" role="textbox" aria-label="세부 목표 3" spellcheck="false">주 3회 운동</div>
-            <div class="goal-cell" contenteditable="true" data-goal-index="3" role="textbox" aria-label="세부 목표 4" spellcheck="false">독서 월 2권</div>
-            <div class="goal-cell main-goal" contenteditable="true" data-goal-index="4" role="textbox" aria-label="가운데 큰 목표" spellcheck="false">환경공학과 진학</div>
-            <div class="goal-cell" contenteditable="true" data-goal-index="5" role="textbox" aria-label="세부 목표 5" spellcheck="false">과학 동아리 발표</div>
-            <div class="goal-cell" contenteditable="true" data-goal-index="6" role="textbox" aria-label="세부 목표 6" spellcheck="false">7시간 수면</div>
-            <div class="goal-cell" contenteditable="true" data-goal-index="7" role="textbox" aria-label="세부 목표 7" spellcheck="false">봉사활동 20시간</div>
-            <div class="goal-cell" contenteditable="true" data-goal-index="8" role="textbox" aria-label="세부 목표 8" spellcheck="false">코딩 포트폴리오</div>
+            <div class="goal-cell" contenteditable="true" data-goal-index="0" role="textbox" aria-label="목표 1" spellcheck="false">매일 30분 영어 듣기</div>
+            <div class="goal-cell" contenteditable="true" data-goal-index="1" role="textbox" aria-label="목표 2" spellcheck="false">영어 단어 복습</div>
+            <div class="goal-cell" contenteditable="true" data-goal-index="2" role="textbox" aria-label="목표 3" spellcheck="false">영어 독해 연습</div>
+            <div class="goal-cell" contenteditable="true" data-goal-index="3" role="textbox" aria-label="목표 4" spellcheck="false">영어 듣기 기록</div>
+            <div class="goal-cell" contenteditable="true" data-goal-index="4" role="textbox" aria-label="목표 5" spellcheck="false">주간 영어 점검</div>
+
+            <div class="goal-cell" contenteditable="true" data-goal-index="5" role="textbox" aria-label="목표 6" spellcheck="false">수학 오답노트</div>
+            <div class="goal-cell" contenteditable="true" data-goal-index="6" role="textbox" aria-label="목표 7" spellcheck="false">주 3회 운동</div>
+            <div class="goal-cell" contenteditable="true" data-goal-index="7" role="textbox" aria-label="목표 8" spellcheck="false">독서 월 2권</div>
+            <div class="goal-cell" contenteditable="true" data-goal-index="8" role="textbox" aria-label="목표 9" spellcheck="false">과학 동아리 발표</div>
+            <div class="goal-cell" contenteditable="true" data-goal-index="9" role="textbox" aria-label="목표 10" spellcheck="false">7시간 수면</div>
+
+            <div class="goal-cell" contenteditable="true" data-goal-index="10" role="textbox" aria-label="목표 11" spellcheck="false">봉사활동 20시간</div>
+            <div class="goal-cell" contenteditable="true" data-goal-index="11" role="textbox" aria-label="목표 12" spellcheck="false">코딩 포트폴리오</div>
+            <div class="goal-cell main-goal" contenteditable="true" data-goal-index="12" role="textbox" aria-label="가운데 큰 목표" spellcheck="false">환경공학과 진학</div>
+            <div class="goal-cell" contenteditable="true" data-goal-index="13" role="textbox" aria-label="목표 14" spellcheck="false">환경 관련 책 읽기</div>
+            <div class="goal-cell" contenteditable="true" data-goal-index="14" role="textbox" aria-label="목표 15" spellcheck="false">환경 뉴스 정리</div>
+
+            <div class="goal-cell" contenteditable="true" data-goal-index="15" role="textbox" aria-label="목표 16" spellcheck="false">수학 개념 복습</div>
+            <div class="goal-cell" contenteditable="true" data-goal-index="16" role="textbox" aria-label="목표 17" spellcheck="false">과학 탐구 활동</div>
+            <div class="goal-cell" contenteditable="true" data-goal-index="17" role="textbox" aria-label="목표 18" spellcheck="false">환경 캠페인 참여</div>
+            <div class="goal-cell" contenteditable="true" data-goal-index="18" role="textbox" aria-label="목표 19" spellcheck="false">진로 탐색</div>
+            <div class="goal-cell" contenteditable="true" data-goal-index="19" role="textbox" aria-label="목표 20" spellcheck="false">학교생활 성실히 하기</div>
+
+            <div class="goal-cell" contenteditable="true" data-goal-index="20" role="textbox" aria-label="목표 21" spellcheck="false">주간 계획 세우기</div>
+            <div class="goal-cell" contenteditable="true" data-goal-index="21" role="textbox" aria-label="목표 22" spellcheck="false">매일 복습하기</div>
+            <div class="goal-cell" contenteditable="true" data-goal-index="22" role="textbox" aria-label="목표 23" spellcheck="false">발표 연습하기</div>
+            <div class="goal-cell" contenteditable="true" data-goal-index="23" role="textbox" aria-label="목표 24" spellcheck="false">새로운 코딩 배우기</div>
+            <div class="goal-cell" contenteditable="true" data-goal-index="24" role="textbox" aria-label="목표 25" spellcheck="false">월말 목표 점검</div>
         </div>
 
-        <p class="mandalart-status" id="mandalart-status" aria-live="polite">수정한 내용은 이 브라우저에 자동 저장돼요.</p>
+        <p class="mandalart-status" id="mandalart-status" aria-live="polite">
+            수정한 내용은 이 브라우저에 자동 저장돼요.
+        </p>
     </section>
 
     <!-- D-day 설정 -->
@@ -367,10 +391,12 @@
     <script>
         (() => {
             const storageKey = "environmentMandalartGoals_v1";
-            const cells = Array.from(document.querySelectorAll(".goal-cell"));
+            const cells = Array.from(
+                document.querySelectorAll(".goal-cell")
+            );
             const status = document.getElementById("mandalart-status");
 
-            // 저장된 목표가 있으면 불러오기
+            // 저장된 목표 불러오기
             try {
                 const savedGoals = JSON.parse(
                     localStorage.getItem(storageKey) || "null"
@@ -384,10 +410,10 @@
                     });
                 }
             } catch (error) {
-                // 저장 기능을 사용할 수 없어도 칸 편집은 가능
+                // 저장 기능이 작동하지 않아도 편집은 가능
             }
 
-            // 칸을 수정할 때마다 자동 저장
+            // 수정할 때마다 자동 저장
             cells.forEach((cell) => {
                 cell.addEventListener("input", () => {
                     try {
@@ -408,7 +434,7 @@
                     }
                 });
 
-                // Enter를 눌러도 칸 안에서 줄바꿈되지 않도록 설정
+                // Enter를 눌러도 칸 안에서 줄바꿈하지 않음
                 cell.addEventListener("keydown", (event) => {
                     if (event.key === "Enter") {
                         event.preventDefault();

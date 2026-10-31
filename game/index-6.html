@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#dbeafe">
+  <title>나의 게임 놀이터</title>
+  <style>
+    * { box-sizing: border-box; }
+    body { margin: 0; padding: 30px 16px; min-height: 100vh; font-family: Arial, "Malgun Gothic", sans-serif; background: linear-gradient(135deg, #dbeafe, #fce7f3); color: #263247; }
+    .container { width: 100%; max-width: 950px; margin: 0 auto; }
+    header { text-align: center; padding: 35px 10px; }
+    header .emoji { font-size: 55px; }
+    header h1 { margin: 12px 0; font-size: clamp(28px, 6vw, 42px); }
+    header p { color: #64748b; font-size: 16px; line-height: 1.6; }
+    .game-list { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; }
+    .game-card { display: flex; flex-direction: column; min-width: 0; background: white; border-radius: 22px; padding: 25px 18px; text-align: center; box-shadow: 0 8px 25px rgba(0,0,0,.08); transition: transform .2s, box-shadow .2s; }
+    .game-card:hover { transform: translateY(-5px); box-shadow: 0 12px 30px rgba(0,0,0,.13); }
+    .game-icon { width: 90px; height: 90px; margin: 0 auto 18px; border-radius: 24px; display: flex; align-items: center; justify-content: center; font-size: 48px; }
+    .reaction-bg { background: #dbeafe; } .mole-bg { background: #dcfce7; } .new-bg { background: #f3e8ff; }
+    .game-card h2 { font-size: 21px; margin: 10px 0; }
+    .game-card p { flex: 1; color: #64748b; font-size: 14px; line-height: 1.7; margin: 0; overflow-wrap: anywhere; }
+    .play-btn { display: block; margin-top: 22px; padding: 13px 10px; border-radius: 13px; background: #4f7df3; color: white; text-decoration: none; font-weight: bold; transition: background .2s; }
+    .play-btn:hover { background: #315ed0; }
+    .game-card:nth-child(2) .play-btn { background: #39945e; }
+    .game-card:nth-child(2) .play-btn:hover { background: #267447; }
+    .add-guide { margin-top: 30px; padding: 20px; border-radius: 18px; background: rgba(255,255,255,.75); color: #64748b; font-size: 14px; line-height: 1.8; }
+    .add-guide h2 { margin: 0 0 8px; color: #263247; font-size: 18px; }
+    code { padding: 2px 5px; border-radius: 5px; background: #f1edff; color: #6544ad; overflow-wrap: anywhere; }
+    footer { text-align: center; margin-top: 35px; color: #64748b; font-size: 13px; }
+    @media (max-width: 650px) { body { padding: 15px 11px; } header { padding: 28px 8px; } .game-list { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 13px; } .game-card { padding: 20px 12px; } .game-icon { width: 75px; height: 75px; font-size: 40px; } .game-card h2 { font-size: 18px; } .game-card p { font-size: 13px; } }
+    @media (max-width: 360px) { .game-list { grid-template-columns: 1fr; } }
+    @media (prefers-reduced-motion: reduce) { *, *::before, *::after { transition: none !important; } }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="emoji">🎮</div>
+      <h1>나의 게임 놀이터</h1>
+      <p>재미있는 게임을 골라서 플레이해 보세요!<br>앞으로 새로운 게임도 계속 추가할 예정이에요.</p>
+    </header>
+    <main class="game-list" id="gameList">
+      <!-- 게임 1: game1.html -->
+      <article class="game-card">
+        <div class="game-icon reaction-bg">⚡</div>
+        <h2>반응속도 테스트</h2>
+        <p>화면이 초록색으로 바뀌는 순간 터치하세요!<br>5회 측정 후 평균 반응속도를 확인해요.</p>
+        <a href="./game1.html" class="play-btn">게임 시작하기 →</a>
+      </article>
+      <!-- 게임 2: game2.html -->
+      <article class="game-card">
+        <div class="game-icon mole-bg">🐹</div>
+        <h2>두더지 잡기</h2>
+        <p>나타나는 두더지를 빠르게 터치하세요!<br>30초 안에 높은 점수에 도전해요.</p>
+        <a href="./game2.html" class="play-btn">게임 시작하기 →</a>
+      </article>
+      <!-- 새 게임을 추가할 때 아래 카드 형식을 복사하고 파일명과 내용을 수정하세요.
+      <article class="game-card">
+        <div class="game-icon new-bg">🧩</div>
+        <h2>새 게임 이름</h2>
+        <p>새 게임의 설명을 입력하세요.</p>
+        <a href="./game3.html" class="play-btn">게임 시작하기 →</a>
+      </article>
+      -->
+    </main>
+    <section class="add-guide">
+      <h2>💡 게임을 더 추가하려면?</h2>
+      새로운 게임 HTML 파일을 <code>index.html</code>과 같은 폴더에 저장한 뒤, 위의 게임 카드 형식을 복사해서 붙여 넣으세요. 파일명과 게임 이름, 설명만 바꾸면 랜딩페이지에서 새 게임으로 이동할 수 있어요.
+    </section>
+    <footer><p>✨ My Game Playground ✨</p></footer>
+  </div>
+</body>
+</html>
